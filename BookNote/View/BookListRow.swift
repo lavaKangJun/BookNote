@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct BookListRow: View {
-    @Binding var item: BookInfo
+    var item: BookInfo
     
-    init(item: Binding<BookInfo>) {
-        self._item = item
+    init(item: BookInfo) {
+        self.item = item
     }
     
     var body: some View {
@@ -37,7 +37,7 @@ struct BookListRow: View {
 
 struct BookListRow_Previews: PreviewProvider {
     static var previews: some View {
-        BookListRow(item: .constant(BookInfo.dummy()))
+        BookListRow(item: BookInfo.dummy())
     }
 }
 

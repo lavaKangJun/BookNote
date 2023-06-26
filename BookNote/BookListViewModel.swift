@@ -19,12 +19,9 @@ class BookListViewModel: ObservableObject {
     @Published var myBookList: [BookList] = []
     @Published var bookList: [BookInfo] = []
     
-    private var cancellables = Set<AnyCancellable>()
-    
     init(repository: Repository) {
         self.repository = repository
         
-//        self.observeTrigger()
     }
     
     func searchBook(_ text: String) {
@@ -36,8 +33,9 @@ class BookListViewModel: ObservableObject {
         }
     }
     
-    private func observeTrigger() {
+//    private func observeTrigger() {
 //        self.$query
+//            .debounce(for: 0.5, scheduler: DispatchQueue.main)
 //            .sink { [weak self] query in
 //                guard let self = self else { return }
 //                Task {

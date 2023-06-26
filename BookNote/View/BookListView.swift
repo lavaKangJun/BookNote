@@ -20,11 +20,11 @@ struct BookListView: View {
                 List {
                     ForEach($viewModel.bookList) { item in
                         NavigationLink(destination: BookDetailView(item: item)) {
-                            BookListRow(item: item)
+//                            BookListRow(item: item.wrappedValue)
                         }
                     }
                 }
-                .searchable(text: $query)
+                .searchable(text: $viewModel.query)
                 .navigationTitle("My Book List 📚")
             }
         }
