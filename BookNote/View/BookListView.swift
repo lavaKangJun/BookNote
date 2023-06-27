@@ -24,7 +24,7 @@ struct BookListView: View {
                         }
                     }
                 }
-                .searchable(text: $viewModel.query)
+                .searchable(text: $query)
                 .navigationTitle("My Book List 📚")
             }
         }

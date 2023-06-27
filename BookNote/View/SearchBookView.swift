@@ -14,9 +14,23 @@ struct SearchBookView: View {
     var body: some View {
         List {
             ForEach($viewModel.bookList) { item in
-                NavigationLink(destination: BookDetailView(item: item)) {
+                ZStack(alignment: .leading) {
+                    NavigationLink {
+                        BookDetailView(item: item)
+                    } label: {
+                        EmptyView()
+                    }
+                    .opacity(0)
+                    
                     listRow(item.wrappedValue)
                 }
+                .listRowBackground(
+                    RoundedRectangle(cornerRadius: 10)
+                        .background(.clear)
+                        .foregroundColor(Color("Gray"))
+                        .padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
+                )
+                .listRowSeparator(.hidden)
             }
         }
         .searchable(text: $query)
@@ -33,14 +47,15 @@ struct SearchBookView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 60, height: 60)
-            } placeholder: {
-                ProgressView()
-            }
+            } placeholder: { }
             VStack(alignment: .leading) {
                 Text(item.title)
-                    .font(.headline)
+                    .lineLimit(1)
+                    .font(.system(size: 14))
+                    .bold()
                 Text(item.author)
-                    .font(.body)
+                    .font(.system(size: 12))
+                    .foregroundColor(.secondary)
             }
         }
     }
