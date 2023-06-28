@@ -19,7 +19,7 @@ struct BookListView: View {
             } else {
                 List {
                     ForEach($viewModel.bookList) { item in
-                        NavigationLink(destination: BookDetailView(item: item)) {
+                        NavigationLink(destination: BookDetailView(viewModel: BookDetailViewModel(bookInfo: item.wrappedValue))) {
 //                            BookListRow(item: item.wrappedValue)
                         }
                     }

@@ -56,3 +56,8 @@ struct BookInfo: Decodable {
         self.description = ""
     }
 }
+
+struct MyBook {
+    var bookInfo: BookInfo
+    var bookStatus: BookStatus
+}
