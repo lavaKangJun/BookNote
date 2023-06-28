@@ -6,12 +6,7 @@
 //
 
 import Foundation
-enum BookStatus {
-    case complete
-    case reading
-    case favorite
-    case none
-}
+import FirebaseFirestore
 
 class BookDetailViewModel: ObservableObject {
     @Published var isFavorited = false
@@ -23,7 +18,8 @@ class BookDetailViewModel: ObservableObject {
     
     init(bookInfo: BookInfo) {
         self.bookInfo = bookInfo
-        fetchFavoriteBooks()
+        
+        fetchBook()
     }
     
     func changeStatus(status: BookStatus) {
@@ -38,19 +34,34 @@ class BookDetailViewModel: ObservableObject {
         if currentBookStatus == .none {
             delete()
         } else {
-            let myBook = MyBook(bookInfo: self.bookInfo, bookStatus: currentBookStatus)
+            let myBook = MyBook(isbn: self.bookInfo.isbn, bookInfo: self.bookInfo, bookStatus: currentBookStatus)
+            let db = Firestore.firestore()
+            db.collection("books")
+                .document(myBook.bookInfo.isbn)
+                .setData(myBook.asDictionary())
         }
         showFavoriteView = false
     }
     
     private func delete() { }
     
-    private func fetchFavoriteBooks() {
-        let dummy = MyBook(bookInfo: self.bookInfo, bookStatus: .complete)
-        let books: [MyBook] = [ dummy ]
-        guard let myBook = books.first(where: { $0.bookInfo.isbn == bookInfo.isbn}) else { return }
-        isFavorited = true
-        bookStatus = myBook.bookStatus
-        currentBookStatus = myBook.bookStatus
+    
+    private func fetchBook() {
+        
+
+    
+        let db = Firestore.firestore()
+        db.collection("books")
+            .document(self.bookInfo.isbn).getDocument { [weak self] snapShot, error in
+                guard let data = snapShot?.data(), error == nil else { return }
+                DispatchQueue.main.async {
+                    self?.isFavorited = true
+                    guard
+                        let statusStr = data["bookStatus"] as? String,
+                        let bookStatus = BookStatus(rawValue: statusStr) else { return }
+                    self?.bookStatus = bookStatus
+                    self?.currentBookStatus = bookStatus
+                }
+            }
     }
 }

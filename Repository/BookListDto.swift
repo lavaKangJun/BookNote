@@ -21,7 +21,7 @@ struct BookList: Decodable {
     }
 }
 
-struct BookInfo: Decodable {
+struct BookInfo: Codable {
     var title: String
     var link: String
     var image: String
@@ -57,7 +57,15 @@ struct BookInfo: Decodable {
     }
 }
 
-struct MyBook {
+enum BookStatus: String, Codable {
+    case complete
+    case reading
+    case favorite
+    case none
+}
+
+struct MyBook: Codable {
+    var isbn: String
     var bookInfo: BookInfo
     var bookStatus: BookStatus
 }

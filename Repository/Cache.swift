@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum UserDefaultKey {
+    case book // 책저장, 상태저장
+    case memo // isbn으로 책이랑 연결
+}
+
 protocol CacheProtocol {
     func getBookList()
     func saveBook()
