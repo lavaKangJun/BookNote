@@ -16,12 +16,10 @@ extension BookInfo: Identifiable {
 
 class BookListViewModel: ObservableObject {
     var repository: Repository
-    @Published var myBookList: [BookList] = []
     @Published var bookList: [BookInfo] = []
     
     init(repository: Repository) {
         self.repository = repository
-        
     }
     
     func searchBook(_ text: String) {
@@ -31,6 +29,15 @@ class BookListViewModel: ObservableObject {
                 self.bookList = bookList?.items ?? []
             }
         }
+    }
+    
+    func fetchBookList() async {
+        guard let bookInfos = try? await self.repository.getBookList() else {
+            return
+        }
+        await MainActor.run(body: {
+            self.bookList = bookInfos.map { $0.bookInfo }
+        })
     }
     
 //    private func observeTrigger() {

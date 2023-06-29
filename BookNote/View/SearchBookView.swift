@@ -16,7 +16,7 @@ struct SearchBookView: View {
             ForEach($viewModel.bookList) { item in
                 ZStack(alignment: .leading) {
                     NavigationLink {
-                        BookDetailView(viewModel: BookDetailViewModel(bookInfo: item.wrappedValue))
+                        BookDetailView(viewModel: BookDetailViewModel(bookInfo: item.wrappedValue, repository: Repository()))
                     } label: {
                         EmptyView()
                     }

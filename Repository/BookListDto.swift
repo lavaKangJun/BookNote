@@ -69,3 +69,9 @@ struct MyBook: Codable {
     var bookInfo: BookInfo
     var bookStatus: BookStatus
 }
+
+struct CompleteInfo: Codable {
+    var isbn: String
+    var rating: Double
+    var date: TimeInterval
+}

@@ -29,34 +29,37 @@ class Repository {
     private let remote = Remote()
     private let cache = Cache()
     func handleResponse(data: Data?, response: URLResponse) {
-        guard let data = data, let response = response as? HTTPURLResponse,
+        guard let _ = data, let response = response as? HTTPURLResponse,
               response.statusCode >= 200 && response.statusCode < 300 else {
             return
         }
     }
-    
-//    func fetchBookList() async throws -> [Book] {
-//        let bookListAPI = URL(string: API.bookList)!
-//        do {
-//            let (data, response) = try await URLSession.shared.data(from: bookListAPI)
-//            // data Decoding
-//            return [] // return decoded [Book]
-//        } catch {
-//            throw error
-//        }
-//    }
     
     func fetchBookList(query: String) async throws -> BookList {
         var parameters: [String: Any] = [:]
         parameters["query"] = query
         return try await self.remote.fetchBookList(parameters: parameters).responseDecodable()
     }
+
+    func saveBook(_ book: MyBook) {
+        self.cache.saveBook(book)
+    }
     
-//    func fetchBookList(url: URL) -> AnyPublisher<[Book]?, URLError> {
-//        URLSession.shared.dataTaskPublisher(for: url)
-//            .map(handleResponse)
-//            .eraseToAnyPublisher()
-//    }
+    func saveBookCompletedInfo(_ info: CompleteInfo) {
+        self.cache.saveBookCompletedInfo(info)
+    }
+    
+    func getBook(isbn: String) async throws -> BookStatus {
+        try await self.cache.getBook(isbn: isbn)
+    }
+    
+    func getBookCompltedInfo(isbn: String) async throws -> CompleteInfo {
+        try await self.cache.getBookCompltedInfo(isbn: isbn)
+    }
+    
+    func getBookList() async throws -> [MyBook] {
+        try await self.cache.getBookList()
+    }
 }
 
 extension Data {

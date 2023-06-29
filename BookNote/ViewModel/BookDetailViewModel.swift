@@ -9,17 +9,21 @@ import Foundation
 import FirebaseFirestore
 
 class BookDetailViewModel: ObservableObject {
+    let bookInfo: BookInfo
+    private let repository: Repository
+    
     @Published var isFavorited = false
     @Published var showFavoriteView = false
     @Published var bookStatus: BookStatus = .none
     @Published var currentBookStatus: BookStatus = .none
     
-    let bookInfo: BookInfo
+    // completed
+    @Published var completedDate: Date = Date()
+    @Published var rating: Double = 3.0
     
-    init(bookInfo: BookInfo) {
+    init(bookInfo: BookInfo, repository: Repository) {
         self.bookInfo = bookInfo
-        
-        fetchBook()
+        self.repository = repository
     }
     
     func changeStatus(status: BookStatus) {
@@ -35,33 +39,48 @@ class BookDetailViewModel: ObservableObject {
             delete()
         } else {
             let myBook = MyBook(isbn: self.bookInfo.isbn, bookInfo: self.bookInfo, bookStatus: currentBookStatus)
-            let db = Firestore.firestore()
-            db.collection("books")
-                .document(myBook.bookInfo.isbn)
-                .setData(myBook.asDictionary())
+            self.repository.saveBook(myBook)
+            
+            if currentBookStatus == .complete {
+                let completeInfo = CompleteInfo(isbn: self.bookInfo.isbn,
+                                                rating: self.rating,
+                                                date: self.completedDate.timeIntervalSince1970)
+                self.repository.saveBookCompletedInfo(completeInfo)
+            }
+            
+            self.isFavorited = true
         }
         showFavoriteView = false
     }
     
-    private func delete() { }
+    private func delete() {
+        self.isFavorited = false
+    }
     
     
-    private func fetchBook() {
+    func fetchBook() async {
+        guard let status = try? await self.repository.getBook(isbn: self.bookInfo.isbn) else {
+            await MainActor.run(body: {
+                self.isFavorited = false
+            })
+            
+            return
+        }
         
-
-    
-        let db = Firestore.firestore()
-        db.collection("books")
-            .document(self.bookInfo.isbn).getDocument { [weak self] snapShot, error in
-                guard let data = snapShot?.data(), error == nil else { return }
-                DispatchQueue.main.async {
-                    self?.isFavorited = true
-                    guard
-                        let statusStr = data["bookStatus"] as? String,
-                        let bookStatus = BookStatus(rawValue: statusStr) else { return }
-                    self?.bookStatus = bookStatus
-                    self?.currentBookStatus = bookStatus
-                }
+        if status == .complete {
+            guard let completionInfo = try? await self.repository.getBookCompltedInfo(isbn: self.bookInfo.isbn) else {
+                return
             }
+            await MainActor.run(body: {
+                self.completedDate = Date(timeIntervalSince1970: completionInfo.date)
+                self.rating = completionInfo.rating
+            })
+        }
+        
+        await MainActor.run(body: {
+            self.isFavorited = true
+            self.bookStatus = status
+            self.currentBookStatus = status
+        })
     }
 }

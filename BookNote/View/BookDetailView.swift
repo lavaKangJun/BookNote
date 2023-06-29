@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BookDetailView: View {
     @StateObject var viewModel: BookDetailViewModel
-    @State var date: Date = Date()
+    var rating: [Double] = [0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]
     
     var body: some View {
         ScrollView {
@@ -37,14 +37,17 @@ struct BookDetailView: View {
         }
         .sheet(isPresented: $viewModel.showFavoriteView) {
             buttonSheet
-                .presentationDetents([.height(270)])
+                .presentationDetents([.height(330)])
+        }
+        .task {
+            await viewModel.fetchBook()
         }
     }
 }
 
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BookDetailView(viewModel: BookDetailViewModel(bookInfo: BookInfo()))
+        BookDetailView(viewModel: BookDetailViewModel(bookInfo: BookInfo(), repository: Repository()))
     }
 }
 
@@ -91,12 +94,26 @@ extension BookDetailView {
             
             if viewModel.currentBookStatus == .complete {
                 
-                DatePicker(selection: $date, displayedComponents: [.date]) {
+                DatePicker(selection: $viewModel.completedDate, displayedComponents: [.date]) {
                     Text("읽은 날짜")
                         .font(.system(size: 15))
                         .foregroundColor(.gray)
                 }
                 .frame(width: 300)
+                
+                HStack {
+                    Text("평가")
+                        .font(.system(size: 15))
+                        .foregroundColor(.gray)
+                    
+                    Spacer()
+                    
+                    Picker("Rating", selection: $viewModel.rating) {
+                        ForEach(rating, id: \.self) { value in
+                            Text(String(format: "%.1f", value))
+                        }
+                    }
+                }.frame(width: 300)
             }
             
             Button {

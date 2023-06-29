@@ -34,6 +34,9 @@ struct BookNoteApp: App {
                     })
                     .tag(1)
             }
+            .task {
+                await viewModel.fetchBookList()
+            }
             .tint(Color("Neptune"))
         }
     }
