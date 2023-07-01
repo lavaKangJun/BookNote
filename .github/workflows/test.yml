@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Run tests
       run: | 
-      xcodebuild clean test \
-      -workspace BookNote.xcworkspace \ 
-      -scheme BookNote \
-      -destination "platform=iOS Simulator,name=iPhone 11"
+        xcodebuild clean test \
+        -workspace BookNote.xcworkspace \ 
+        -scheme BookNote \
+        -destination "platform=iOS Simulator,name=iPhone 11"
