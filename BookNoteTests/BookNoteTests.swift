@@ -6,6 +6,8 @@
 //
 
 import XCTest
+import FirebaseCore
+
 @testable import BookNote
 
 final class BookNoteTests: XCTestCase {
