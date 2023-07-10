@@ -20,7 +20,7 @@ struct BookListView: View {
                 List {
                     ForEach($viewModel.bookList) { item in
                         NavigationLink(destination: BookDetailView(viewModel: BookDetailViewModel(bookInfo: item.wrappedValue, repository: Repository()))) {
-//                            BookListRow(item: item.wrappedValue)
+                            BookListRow(item: item.wrappedValue)
                         }
                     }
                 }

@@ -27,7 +27,6 @@ struct BookListRow: View {
             VStack(alignment: .leading) {
                 Text(item.title)
                     .font(.headline)
-                padding()
                 Text(item.author)
                     .font(.body)
             }
