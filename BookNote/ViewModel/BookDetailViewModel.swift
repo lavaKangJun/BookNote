@@ -55,6 +55,7 @@ class BookDetailViewModel: ObservableObject {
     
     private func delete() {
         self.isFavorited = false
+        self.repository.deleteBook(self.bookInfo.isbn)
     }
     
     
