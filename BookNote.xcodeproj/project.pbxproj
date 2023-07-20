@@ -7,29 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		51401AAC2A0956320039FB82 /* BookListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51401AAB2A0956320039FB82 /* BookListDto.swift */; };
 		51401AFB2A0D3D120039FB82 /* BookListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51401AFA2A0D3D120039FB82 /* BookListRow.swift */; };
 		51401AFE2A0D3F440039FB82 /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51401AFD2A0D3F440039FB82 /* BookDetailView.swift */; };
 		51401B3A2A17E1FA0039FB82 /* MyBookMemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51401B392A17E1FA0039FB82 /* MyBookMemo.swift */; };
-		51401B3C2A17E2EC0039FB82 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51401B3B2A17E2EC0039FB82 /* Cache.swift */; };
 		51401B3E2A17E61C0039FB82 /* EmptyBookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51401B3D2A17E61C0039FB82 /* EmptyBookListView.swift */; };
 		51401B402A17E7140039FB82 /* SearchBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51401B3F2A17E7140039FB82 /* SearchBookView.swift */; };
 		5177A4C02A0021E1004E44B0 /* BookListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177A4BF2A0021E1004E44B0 /* BookListViewModel.swift */; };
 		5177A4C22A02C611004E44B0 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177A4C12A02C611004E44B0 /* BookListView.swift */; };
-		5177A4C52A02C8A3004E44B0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5177A4C42A02C8A3004E44B0 /* Alamofire */; };
-		5177A4C82A02C8D7004E44B0 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177A4C72A02C8D7004E44B0 /* Repository.swift */; };
-		5199F1422A5016D700AC8674 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5199F1412A5016D700AC8674 /* FirebaseAuth */; };
+		5189B1872A6930B700F10B5F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5189B1862A6930B700F10B5F /* Repository.swift */; };
+		5189B1892A6930E300F10B5F /* Repository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5189B1882A6930E300F10B5F /* Repository.framework */; };
+		5189B18A2A6930E300F10B5F /* Repository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5189B1882A6930E300F10B5F /* Repository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		51BEDF0B2A38D0B700F9217C /* SearchBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BEDF0A2A38D0B700F9217C /* SearchBookViewModel.swift */; };
 		51BEDF0D2A38D11700F9217C /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BEDF0C2A38D11700F9217C /* Factory.swift */; };
-		51BEDF102A38D24000F9217C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 51BEDF0F2A38D24000F9217C /* Kingfisher */; };
 		51D7897A2A4BDBD3006DEB0E /* BookDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D789792A4BDBD3006DEB0E /* BookDetailViewModel.swift */; };
-		51D7897D2A4C2D8C006DEB0E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 51D7897C2A4C2D8C006DEB0E /* FirebaseAuth */; };
-		51D7897F2A4C2D8C006DEB0E /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 51D7897E2A4C2D8C006DEB0E /* FirebaseAuthCombine-Community */; };
-		51D789812A4C2D8C006DEB0E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 51D789802A4C2D8C006DEB0E /* FirebaseFirestore */; };
-		51D789832A4C2D8D006DEB0E /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 51D789822A4C2D8C006DEB0E /* FirebaseFirestoreCombine-Community */; };
-		51D789852A4C2D8D006DEB0E /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 51D789842A4C2D8D006DEB0E /* FirebaseFirestoreSwift */; };
 		51D789872A4C4128006DEB0E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 51D789862A4C4128006DEB0E /* GoogleService-Info.plist */; };
 		51D789892A4C4190006DEB0E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D789882A4C4190006DEB0E /* Extension.swift */; };
+		51F7BF1C2A694255005BFA04 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 51F7BF1B2A694255005BFA04 /* FirebaseAuth */; };
+		51F7BF1E2A694255005BFA04 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 51F7BF1D2A694255005BFA04 /* FirebaseAuthCombine-Community */; };
+		51F7BF202A694255005BFA04 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 51F7BF1F2A694255005BFA04 /* FirebaseFirestore */; };
+		51F7BF222A694255005BFA04 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 51F7BF212A694255005BFA04 /* FirebaseFirestoreCombine-Community */; };
+		51F7BF242A694255005BFA04 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 51F7BF232A694255005BFA04 /* FirebaseFirestoreSwift */; };
 		51F8402F29C22F1500A5AE6F /* BookNoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F8402E29C22F1500A5AE6F /* BookNoteApp.swift */; };
 		51F8403329C22F1A00A5AE6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51F8403229C22F1A00A5AE6F /* Assets.xcassets */; };
 		51F8403629C22F1A00A5AE6F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51F8403529C22F1A00A5AE6F /* Preview Assets.xcassets */; };
@@ -46,18 +43,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5189B18B2A6930E300F10B5F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5189B18A2A6930E300F10B5F /* Repository.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		51401AAB2A0956320039FB82 /* BookListDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListDto.swift; sourceTree = "<group>"; };
 		51401AAD2A0A9E990039FB82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		51401AFA2A0D3D120039FB82 /* BookListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRow.swift; sourceTree = "<group>"; };
 		51401AFD2A0D3F440039FB82 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 		51401B392A17E1FA0039FB82 /* MyBookMemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookMemo.swift; sourceTree = "<group>"; };
-		51401B3B2A17E2EC0039FB82 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		51401B3D2A17E61C0039FB82 /* EmptyBookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyBookListView.swift; sourceTree = "<group>"; };
 		51401B3F2A17E7140039FB82 /* SearchBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookView.swift; sourceTree = "<group>"; };
 		5177A4BF2A0021E1004E44B0 /* BookListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewModel.swift; sourceTree = "<group>"; };
 		5177A4C12A02C611004E44B0 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
-		5177A4C72A02C8D7004E44B0 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		5189B1862A6930B700F10B5F /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		5189B1882A6930E300F10B5F /* Repository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Repository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51BEDF0A2A38D0B700F9217C /* SearchBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookViewModel.swift; sourceTree = "<group>"; };
 		51BEDF0C2A38D11700F9217C /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		51D789792A4BDBD3006DEB0E /* BookDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModel.swift; sourceTree = "<group>"; };
@@ -76,13 +86,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51BEDF102A38D24000F9217C /* Kingfisher in Frameworks */,
-				51D7897D2A4C2D8C006DEB0E /* FirebaseAuth in Frameworks */,
-				5177A4C52A02C8A3004E44B0 /* Alamofire in Frameworks */,
-				51D789852A4C2D8D006DEB0E /* FirebaseFirestoreSwift in Frameworks */,
-				51D789832A4C2D8D006DEB0E /* FirebaseFirestoreCombine-Community in Frameworks */,
-				51D789812A4C2D8C006DEB0E /* FirebaseFirestore in Frameworks */,
-				51D7897F2A4C2D8C006DEB0E /* FirebaseAuthCombine-Community in Frameworks */,
+				5189B1892A6930E300F10B5F /* Repository.framework in Frameworks */,
+				51F7BF202A694255005BFA04 /* FirebaseFirestore in Frameworks */,
+				51F7BF1E2A694255005BFA04 /* FirebaseAuthCombine-Community in Frameworks */,
+				51F7BF222A694255005BFA04 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				51F7BF1C2A694255005BFA04 /* FirebaseAuth in Frameworks */,
+				51F7BF242A694255005BFA04 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +99,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5199F1422A5016D700AC8674 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,19 +118,10 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		5177A4C62A02C8C5004E44B0 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				5177A4C72A02C8D7004E44B0 /* Repository.swift */,
-				51401AAB2A0956320039FB82 /* BookListDto.swift */,
-				51401B3B2A17E2EC0039FB82 /* Cache.swift */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
 		5199F1402A5016D700AC8674 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5189B1882A6930E300F10B5F /* Repository.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -142,7 +141,6 @@
 			children = (
 				51D789882A4C4190006DEB0E /* Extension.swift */,
 				51D789862A4C4128006DEB0E /* GoogleService-Info.plist */,
-				5177A4C62A02C8C5004E44B0 /* Repository */,
 				51F8402D29C22F1500A5AE6F /* BookNote */,
 				51F8403E29C22F1A00A5AE6F /* BookNoteTests */,
 				51F8402C29C22F1500A5AE6F /* Products */,
@@ -169,6 +167,7 @@
 				51F8403229C22F1A00A5AE6F /* Assets.xcassets */,
 				51F8403429C22F1A00A5AE6F /* Preview Content */,
 				51BEDF0C2A38D11700F9217C /* Factory.swift */,
+				5189B1862A6930B700F10B5F /* Repository.swift */,
 			);
 			path = BookNote;
 			sourceTree = "<group>";
@@ -199,6 +198,7 @@
 				51F8402729C22F1500A5AE6F /* Sources */,
 				51F8402829C22F1500A5AE6F /* Frameworks */,
 				51F8402929C22F1500A5AE6F /* Resources */,
+				5189B18B2A6930E300F10B5F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -206,13 +206,11 @@
 			);
 			name = BookNote;
 			packageProductDependencies = (
-				5177A4C42A02C8A3004E44B0 /* Alamofire */,
-				51BEDF0F2A38D24000F9217C /* Kingfisher */,
-				51D7897C2A4C2D8C006DEB0E /* FirebaseAuth */,
-				51D7897E2A4C2D8C006DEB0E /* FirebaseAuthCombine-Community */,
-				51D789802A4C2D8C006DEB0E /* FirebaseFirestore */,
-				51D789822A4C2D8C006DEB0E /* FirebaseFirestoreCombine-Community */,
-				51D789842A4C2D8D006DEB0E /* FirebaseFirestoreSwift */,
+				51F7BF1B2A694255005BFA04 /* FirebaseAuth */,
+				51F7BF1D2A694255005BFA04 /* FirebaseAuthCombine-Community */,
+				51F7BF1F2A694255005BFA04 /* FirebaseFirestore */,
+				51F7BF212A694255005BFA04 /* FirebaseFirestoreCombine-Community */,
+				51F7BF232A694255005BFA04 /* FirebaseFirestoreSwift */,
 			);
 			productName = BookNote;
 			productReference = 51F8402B29C22F1500A5AE6F /* BookNote.app */;
@@ -233,7 +231,6 @@
 			);
 			name = BookNoteTests;
 			packageProductDependencies = (
-				5199F1412A5016D700AC8674 /* FirebaseAuth */,
 			);
 			productName = BookNoteTests;
 			productReference = 51F8403B29C22F1A00A5AE6F /* BookNoteTests.xctest */;
@@ -268,9 +265,7 @@
 			);
 			mainGroup = 51F8402229C22F1500A5AE6F;
 			packageReferences = (
-				5177A4C32A02C8A2004E44B0 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				51BEDF0E2A38D24000F9217C /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				51D7897B2A4C2D8C006DEB0E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				51F7BF1A2A694255005BFA04 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 51F8402C29C22F1500A5AE6F /* Products */;
 			projectDirPath = "";
@@ -310,15 +305,13 @@
 				51D789892A4C4190006DEB0E /* Extension.swift in Sources */,
 				51D7897A2A4BDBD3006DEB0E /* BookDetailViewModel.swift in Sources */,
 				51401AFE2A0D3F440039FB82 /* BookDetailView.swift in Sources */,
+				5189B1872A6930B700F10B5F /* Repository.swift in Sources */,
 				51F8402F29C22F1500A5AE6F /* BookNoteApp.swift in Sources */,
 				51401AFB2A0D3D120039FB82 /* BookListRow.swift in Sources */,
-				5177A4C82A02C8D7004E44B0 /* Repository.swift in Sources */,
 				5177A4C02A0021E1004E44B0 /* BookListViewModel.swift in Sources */,
 				51BEDF0D2A38D11700F9217C /* Factory.swift in Sources */,
 				51401B3E2A17E61C0039FB82 /* EmptyBookListView.swift in Sources */,
-				51401B3C2A17E2EC0039FB82 /* Cache.swift in Sources */,
 				51401B3A2A17E1FA0039FB82 /* MyBookMemo.swift in Sources */,
-				51401AAC2A0956320039FB82 /* BookListDto.swift in Sources */,
 				51BEDF0B2A38D0B700F9217C /* SearchBookViewModel.swift in Sources */,
 				51401B402A17E7140039FB82 /* SearchBookView.swift in Sources */,
 				5177A4C22A02C611004E44B0 /* BookListView.swift in Sources */,
@@ -585,23 +578,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5177A4C32A02C8A2004E44B0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		51BEDF0E2A38D24000F9217C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
-		51D7897B2A4C2D8C006DEB0E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		51F7BF1A2A694255005BFA04 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
@@ -612,44 +589,29 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5177A4C42A02C8A3004E44B0 /* Alamofire */ = {
+		51F7BF1B2A694255005BFA04 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5177A4C32A02C8A2004E44B0 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		5199F1412A5016D700AC8674 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 51D7897B2A4C2D8C006DEB0E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 51F7BF1A2A694255005BFA04 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		51BEDF0F2A38D24000F9217C /* Kingfisher */ = {
+		51F7BF1D2A694255005BFA04 /* FirebaseAuthCombine-Community */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 51BEDF0E2A38D24000F9217C /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		51D7897C2A4C2D8C006DEB0E /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 51D7897B2A4C2D8C006DEB0E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		51D7897E2A4C2D8C006DEB0E /* FirebaseAuthCombine-Community */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 51D7897B2A4C2D8C006DEB0E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 51F7BF1A2A694255005BFA04 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseAuthCombine-Community";
 		};
-		51D789802A4C2D8C006DEB0E /* FirebaseFirestore */ = {
+		51F7BF1F2A694255005BFA04 /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 51D7897B2A4C2D8C006DEB0E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 51F7BF1A2A694255005BFA04 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
-		51D789822A4C2D8C006DEB0E /* FirebaseFirestoreCombine-Community */ = {
+		51F7BF212A694255005BFA04 /* FirebaseFirestoreCombine-Community */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 51D7897B2A4C2D8C006DEB0E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 51F7BF1A2A694255005BFA04 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseFirestoreCombine-Community";
 		};
-		51D789842A4C2D8D006DEB0E /* FirebaseFirestoreSwift */ = {
+		51F7BF232A694255005BFA04 /* FirebaseFirestoreSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 51D7897B2A4C2D8C006DEB0E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 51F7BF1A2A694255005BFA04 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

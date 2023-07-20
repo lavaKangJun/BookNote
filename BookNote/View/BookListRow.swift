@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Repository
 
 struct BookListRow: View {
     var item: BookInfo

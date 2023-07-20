@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Repository
 
 struct BookDetailView: View {
     @StateObject var viewModel: BookDetailViewModel

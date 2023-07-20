@@ -6,14 +6,14 @@
 //
 
 import SwiftUI
-import FirebaseCore
 
 @main
 struct BookNoteApp: App {
+    private let repository = Repository()
     @StateObject private var viewModel = BookListViewModel(repository: Repository())
     
     init() {
-        FirebaseApp.configure()
+        repository.connectionToServer()
     }
     
     var body: some Scene {

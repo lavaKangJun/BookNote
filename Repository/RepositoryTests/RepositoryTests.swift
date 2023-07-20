@@ -1,14 +1,14 @@
 //
-//  BookNoteTests.swift
-//  BookNoteTests
+//  RepositoryTests.swift
+//  RepositoryTests
 //
-//  Created by 강준영 on 2023/03/16.
+//  Created by 강준영 on 2023/07/20.
 //
 
 import XCTest
+@testable import Repository
 
-@testable import BookNote
-final class BookNoteTests: XCTestCase {
+final class RepositoryTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

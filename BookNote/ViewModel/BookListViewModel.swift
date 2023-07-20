@@ -7,9 +7,10 @@
 
 import Foundation
 import Combine
+import Repository
 
 extension BookInfo: Identifiable {
-    var id: ObjectIdentifier {
+    public var id: ObjectIdentifier {
         ObjectIdentifier(NSString(string: isbn))
     }
 }

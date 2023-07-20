@@ -6,11 +6,11 @@
 //
 
 import Foundation
-import FirebaseFirestore
+import Repository
 
 class BookDetailViewModel: ObservableObject {
     let bookInfo: BookInfo
-    private let repository: Repository
+    private let repository: RepositoryProtocol
     
     @Published var isFavorited = false
     @Published var showFavoriteView = false
@@ -21,7 +21,7 @@ class BookDetailViewModel: ObservableObject {
     @Published var completedDate: Date = Date()
     @Published var rating: Double = 3.0
     
-    init(bookInfo: BookInfo, repository: Repository) {
+    init(bookInfo: BookInfo, repository: RepositoryProtocol) {
         self.bookInfo = bookInfo
         self.repository = repository
     }

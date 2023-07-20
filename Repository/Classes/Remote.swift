@@ -1,84 +1,18 @@
 //
-//  Repository.swift
-//  BookNote
+//  Remote.swift
+//  Repository
 //
-//  Created by 강준영 on 2023/05/04.
+//  Created by 강준영 on 2023/07/20.
 //
 
 import Foundation
 import Alamofire
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import FirebaseCore
 
-enum API {
-    case bookList
-    
-    var api: String {
-        switch self {
-        case .bookList:
-            return "https://openapi.naver.com/v1/search/book.json"
-        }
-    }
-    
-    static var header: HTTPHeaders = [
-        "X-Naver-Client-Id" : "4xdrx65q2K1XTYkSENhn",
-        "X-Naver-Client-Secret" : "ZLdRi6prgE",
-        "Content-Type" : "application/json"
-    ]
-}
-
-class Repository {
-    private let remote = Remote()
-    private let cache = Cache()
-    func handleResponse(data: Data?, response: URLResponse) {
-        guard let _ = data, let response = response as? HTTPURLResponse,
-              response.statusCode >= 200 && response.statusCode < 300 else {
-            return
-        }
-    }
-    
-    func fetchBookList(query: String) async throws -> BookList {
-        var parameters: [String: Any] = [:]
-        parameters["query"] = query
-        return try await self.remote.fetchBookList(parameters: parameters).responseDecodable()
-    }
-
-    func saveBook(_ book: MyBook) {
-        self.remote.saveBook(book)
-    }
-    
-    func saveBookCompletedInfo(_ info: CompleteInfo) {
-        self.remote.saveBookCompletedInfo(info)
-    }
-    
-    func getBook(isbn: String) async throws -> BookStatus {
-        try await self.remote.fetchBook(isbn: isbn)
-    }
-    
-    func getBookCompltedInfo(isbn: String) async throws -> CompleteInfo {
-        try await self.remote.fetchBookCompltedInfo(isbn: isbn)
-    }
-    
-    func getBookList() async throws -> [MyBook] {
-        try await self.remote.fetchBookList()
-    }
-    
-    func deleteBook(_ isbn: String) {
-        self.remote.deleteBook(isbn)
-    }
-}
-
-extension Data {
-    func responseDecodable<T: Decodable>() throws -> T {
-        do {
-            return try JSONDecoder().decode(T.self, from: self)
-        } catch {
-            throw error
-        }
-    }
-}
-
-protocol RemoteProtocol {
+public protocol RemoteProtocol {
+    func connectionToServer()
     func fetchBookList(parameters: [String: Any]) async throws -> Data
     
     func fetchBookList() async throws -> [MyBook]
@@ -94,8 +28,12 @@ protocol RemoteProtocol {
     func getBookMemo()
 }
 
-class Remote: RemoteProtocol {
-    func fetchBookList(parameters: [String: Any]) async throws -> Data {
+extension RemoteProtocol {
+    public func connectionToServer() {
+        FirebaseApp.configure()
+    }
+    
+    public func fetchBookList(parameters: [String: Any]) async throws -> Data {
         return try await withCheckedThrowingContinuation{ continuation in
             AF.request(API.bookList.api, method: .get, parameters: parameters, headers: API.header)
                 .validate(statusCode: 200..<300)
@@ -110,7 +48,7 @@ class Remote: RemoteProtocol {
         }
     }
 
-    func fetchBookList() async throws -> [MyBook] {
+    public func fetchBookList() async throws -> [MyBook] {
         try await withCheckedThrowingContinuation { continuation in
             let db = Firestore.firestore()
             db.collection("books")
@@ -142,7 +80,7 @@ class Remote: RemoteProtocol {
         }
     }
     
-    func fetchBook(isbn: String) async throws -> BookStatus {
+    public func fetchBook(isbn: String) async throws -> BookStatus {
         try await withCheckedThrowingContinuation { continuation in
             let db = Firestore.firestore()
             db.collection("books")
@@ -163,7 +101,7 @@ class Remote: RemoteProtocol {
         }
     }
     
-    func fetchBookCompltedInfo(isbn: String) async throws -> CompleteInfo {
+    public func fetchBookCompltedInfo(isbn: String) async throws -> CompleteInfo {
         try await withCheckedThrowingContinuation{ continuation in
             let db = Firestore.firestore()
             db.collection("books")
@@ -186,14 +124,14 @@ class Remote: RemoteProtocol {
         }
     }
     
-    func saveBook(_ book: MyBook) {
+    public func saveBook(_ book: MyBook) {
         let db = Firestore.firestore()
         db.collection("books")
             .document(book.bookInfo.isbn)
             .setData(book.asDictionary())
     }
     
-    func saveBookCompletedInfo(_ info: CompleteInfo) {
+    public func saveBookCompletedInfo(_ info: CompleteInfo) {
         let db = Firestore.firestore()
         db.collection("books")
             .document(info.isbn)
@@ -202,7 +140,7 @@ class Remote: RemoteProtocol {
             .setData(info.asDictionary())
     }
     
-    func deleteBook(_ isbn: String) {
+    public func deleteBook(_ isbn: String) {
         let db = Firestore.firestore()
         
         db.collection("books")
@@ -217,6 +155,18 @@ class Remote: RemoteProtocol {
         
     }
     
-    func saveBookMemo() { }
-    func getBookMemo() { }
+    public func saveBookMemo() { }
+    public func getBookMemo() { }
+}
+
+extension Encodable {
+    func asDictionary() -> [String: Any] {
+        guard let data = try? JSONEncoder().encode(self) else { return [:] }
+        do {
+            let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+            return json ?? [:]
+        } catch {
+            return [:]
+        }
+    }
 }

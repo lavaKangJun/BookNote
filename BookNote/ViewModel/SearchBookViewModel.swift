@@ -7,15 +7,16 @@
 
 import Foundation
 import Combine
+import Repository
 
 class SearchBookViewModel: ObservableObject {
-    var repository: Repository
+    var repository: RepositoryProtocol
     @Published var myBookList: [BookList] = []
     @Published var bookList: [BookInfo] = []
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(repository: Repository) {
+    init(repository: RepositoryProtocol) {
         self.repository = repository
     }
     
