@@ -17,6 +17,6 @@ jobs:
     - name: Run tests
       run: |
         xcodebuild clean test \
-        -project BookNote.xcodeproj \
+        -workspace BookNote.xcworkspace \
         -scheme BookNote \
         -destination "platform=iOS Simulator,name=iPhone 14"
