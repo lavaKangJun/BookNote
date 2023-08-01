@@ -5,6 +5,6 @@
       location = "group:Repository/Repository.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:BookNote.xcodeproj">
+      location = "group:BookNote/BookNote.xcodeproj">
    </FileRef>
 </Workspace>

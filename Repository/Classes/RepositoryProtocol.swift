@@ -1,15 +1,14 @@
 //
-//  Repository.swift
+//  RepositoryProtocol.swift
 //  Repository
 //
-//  Created by 강준영 on 2023/07/20.
+//  Created by 강준영 on 2023/08/02.
 //
 
 import Foundation
 
 public protocol RepositoryProtocol {
-    var remote: RemoteProtocol { get }
-    var cache: CacheProtocol { get }
+    var remote: RemoteProtocol { get set }
     
     func connectionToServer()
     func fetchBookList(query: String) async throws -> BookList
@@ -66,4 +65,3 @@ extension Data {
         }
     }
 }
-
