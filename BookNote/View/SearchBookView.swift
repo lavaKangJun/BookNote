@@ -12,32 +12,45 @@ struct SearchBookView: View {
     @State var query: String = ""
     
     var body: some View {
-        List {
-            ForEach($viewModel.bookList) { item in
-                ZStack(alignment: .leading) {
-                    NavigationLink {
-                        BookDetailView(viewModel: BookDetailViewModel(bookInfo: item.wrappedValue, repository: Repository()))
-                    } label: {
-                        EmptyView()
+        NavigationView {
+            ZStack {
+                if query.isEmpty && viewModel.bookList.isEmpty {
+                    Text("Search history")
+                } else {
+                    List {
+                        ForEach($viewModel.bookList) { item in
+                            ZStack(alignment: .leading) {
+                                NavigationLink {
+                                    BookDetailView(viewModel: BookDetailViewModel(bookInfo: item.wrappedValue, repository: Repository()))
+                                } label: {
+                                    EmptyView()
+                                }
+                                .opacity(0)
+                                
+                                listRow(item.wrappedValue)
+                            }
+                            .listRowBackground(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .background(.clear)
+                                    .foregroundColor(Color("Gray"))
+                                    .padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
+                            )
+                            .listRowSeparator(.hidden)
+                        }
                     }
-                    .opacity(0)
-                    
-                    listRow(item.wrappedValue)
                 }
-                .listRowBackground(
-                    RoundedRectangle(cornerRadius: 10)
-                        .background(.clear)
-                        .foregroundColor(Color("Gray"))
-                        .padding(EdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2))
-                )
-                .listRowSeparator(.hidden)
             }
+            .searchable(text: $query)
+            .onSubmit(of:.search , {
+                viewModel.searchBook(query)
+            })
+            .onChange(of: query, perform: { newValue in
+                if query.isEmpty {
+                    viewModel.resetBookList()
+                }
+            })
+            .navigationTitle("Search Book 📚")
         }
-        .searchable(text: $query)
-        .onSubmit(of:.search , {
-            viewModel.searchBook(query)
-        })
-        .navigationTitle("My Book List 📚")
     }
     
     func listRow(_ item: BookInfo) -> some View {

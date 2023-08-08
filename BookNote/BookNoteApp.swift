@@ -6,25 +6,32 @@
 //
 
 import SwiftUI
-import FirebaseCore
 
 @main
 struct BookNoteApp: App {
-    @StateObject private var viewModel = BookListViewModel(repository: Repository())
-    
+    @StateObject private var myListViewModel = BookListViewModel(repository: Repository.factory())
+    @StateObject private var searchViewModel = SearchBookViewModel(repository: Repository.factory())
     init() {
-        FirebaseApp.configure()
+        Repository.factory().connectionToServer()
     }
     
     var body: some Scene {
         WindowGroup {
             TabView {
-                BookListView(viewModel: viewModel)
+               SearchBookView(viewModel: searchViewModel)
                     .tabItem({
-                        Image(systemName: "books.vertical.fill")
-                        Text("List")
+                        Image(systemName: "sparkle.magnifyingglass")
+                        Text("Search")
                     })
                     .tag(0)
+                    .navigationViewStyle(.stack)
+                
+                BookListView(viewModel: myListViewModel)
+                    .tabItem({
+                        Image(systemName: "books.vertical.fill")
+                        Text("My List")
+                    })
+                    .tag(1)
                     .navigationViewStyle(.stack)
                 
                 MyBookMemo()
@@ -32,10 +39,10 @@ struct BookNoteApp: App {
                         Image(systemName: "note.text")
                         Text("Memo")
                     })
-                    .tag(1)
+                    .tag(2)
             }
             .task {
-                await viewModel.fetchBookList()
+                await myListViewModel.fetchBookList()
             }
             .tint(Color("Neptune"))
         }

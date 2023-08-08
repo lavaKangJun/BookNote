@@ -34,6 +34,7 @@
 		51F8403329C22F1A00A5AE6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51F8403229C22F1A00A5AE6F /* Assets.xcassets */; };
 		51F8403629C22F1A00A5AE6F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51F8403529C22F1A00A5AE6F /* Preview Assets.xcassets */; };
 		51F8404029C22F1A00A5AE6F /* BookNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F8403F29C22F1A00A5AE6F /* BookNoteTests.swift */; };
+		51F901B12A828A9900A05F22 /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F901B02A828A9900A05F22 /* Remote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		51F8403529C22F1A00A5AE6F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		51F8403B29C22F1A00A5AE6F /* BookNoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookNoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51F8403F29C22F1A00A5AE6F /* BookNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookNoteTests.swift; sourceTree = "<group>"; };
+		51F901B02A828A9900A05F22 /* Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Remote.swift; path = "../../.Trash/BookNote 오후 11.30.28/Repository/Remote.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,8 @@
 		5177A4C62A02C8C5004E44B0 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				51D789882A4C4190006DEB0E /* Extension.swift */,
+				51F901B02A828A9900A05F22 /* Remote.swift */,
 				5177A4C72A02C8D7004E44B0 /* Repository.swift */,
 				51401AAB2A0956320039FB82 /* BookListDto.swift */,
 				51401B3B2A17E2EC0039FB82 /* Cache.swift */,
@@ -140,7 +144,6 @@
 		51F8402229C22F1500A5AE6F = {
 			isa = PBXGroup;
 			children = (
-				51D789882A4C4190006DEB0E /* Extension.swift */,
 				51D789862A4C4128006DEB0E /* GoogleService-Info.plist */,
 				5177A4C62A02C8C5004E44B0 /* Repository */,
 				51F8402D29C22F1500A5AE6F /* BookNote */,
@@ -320,6 +323,7 @@
 				51401B3A2A17E1FA0039FB82 /* MyBookMemo.swift in Sources */,
 				51401AAC2A0956320039FB82 /* BookListDto.swift in Sources */,
 				51BEDF0B2A38D0B700F9217C /* SearchBookViewModel.swift in Sources */,
+				51F901B12A828A9900A05F22 /* Remote.swift in Sources */,
 				51401B402A17E7140039FB82 /* SearchBookView.swift in Sources */,
 				5177A4C22A02C611004E44B0 /* BookListView.swift in Sources */,
 			);

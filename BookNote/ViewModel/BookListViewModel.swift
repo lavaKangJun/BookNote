@@ -32,12 +32,15 @@ class BookListViewModel: ObservableObject {
     }
     
     func fetchBookList() async {
-        guard let bookInfos = try? await self.repository.getBookList() else {
-            return
+        do {
+            let bookInfos = try await self.repository.getBookList()
+            await MainActor.run(body: {
+                self.bookList = bookInfos.map { $0.bookInfo }
+            })
+        } catch {
+            print(error)
         }
-        await MainActor.run(body: {
-            self.bookList = bookInfos.map { $0.bookInfo }
-        })
+        
     }
     
 //    private func observeTrigger() {

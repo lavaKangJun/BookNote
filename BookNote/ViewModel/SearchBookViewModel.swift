@@ -28,6 +28,10 @@ class SearchBookViewModel: ObservableObject {
         }
     }
     
+    func resetBookList() {
+        self.bookList = []
+    }
+    
 //    private func observeTrigger() {
 //        self.$query
 //            .debounce(for: 0.5, scheduler: DispatchQueue.main)

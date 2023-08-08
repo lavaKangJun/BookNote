@@ -18,3 +18,13 @@ extension Encodable {
         }
     }
 }
+
+extension Data {
+    func responseDecodable<T: Decodable>() throws -> T {
+        do {
+            return try JSONDecoder().decode(T.self, from: self)
+        } catch {
+            throw error
+        }
+    }
+}

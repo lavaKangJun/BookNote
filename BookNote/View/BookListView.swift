@@ -24,9 +24,10 @@ struct BookListView: View {
                         }
                     }
                 }
-                .searchable(text: $query)
                 .navigationTitle("My Book List 📚")
             }
+        }.task {
+            await viewModel.fetchBookList()
         }
     }
 }
